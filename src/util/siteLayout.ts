@@ -1,18 +1,10 @@
 import { DeviceGuide } from "./deviceGuide";
+import { DeviceIndex, SiteLayout } from "../models/device";
 
-export interface IdToCount {
-    [id: number]: number;
-}
-
-export interface SiteLayout {
-    deviceMap: number[][];
-    siteWidth: number;
-    rowCount: number;
-}
 
 const MAX_WIDTH = 100
 
-export const createSiteLayout = (deviceIndex: IdToCount): SiteLayout => {
+export const createSiteLayout = (deviceIndex: DeviceIndex): SiteLayout => {
     // Create a sorted device list from the Device Index
     let deviceList: { id: number; width: number }[] = [];
     for (const [idStr, quantity] of Object.entries(deviceIndex)) {
@@ -27,7 +19,7 @@ export const createSiteLayout = (deviceIndex: IdToCount): SiteLayout => {
 
     deviceList.sort(
         (a, b) => {
-            if (b.width == a.width) {
+            if (b.width === a.width) {
                 return b.id - a.id
             }
             return b.width - a.width
