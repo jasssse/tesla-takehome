@@ -13,8 +13,8 @@ export interface SiteLayout {
 const MAX_WIDTH = 100
 
 export const createSiteLayout = (deviceIndex: IdToCount): SiteLayout => {
+    // Create a sorted device list from the Device Index
     let deviceList: { id: number; width: number }[] = [];
-
     for (const [idStr, quantity] of Object.entries(deviceIndex)) {
         const id = parseInt(idStr);
         const device = DeviceGuide.get(id);
@@ -24,7 +24,7 @@ export const createSiteLayout = (deviceIndex: IdToCount): SiteLayout => {
             }
         }
     }
-
+    
     deviceList.sort(
         (a, b) => {
             if (b.width == a.width) {
@@ -34,10 +34,6 @@ export const createSiteLayout = (deviceIndex: IdToCount): SiteLayout => {
         }
     )
 
-    // for (const d of deviceList) {
-    //     console.log(d)
-    // }
-
     function rowWidth(row: number[]): number {
         return row.reduce((totalWidth, id) => {
             const device = DeviceGuide.get(id);
@@ -46,16 +42,13 @@ export const createSiteLayout = (deviceIndex: IdToCount): SiteLayout => {
         }, 0);
     }
     
-
     // Greedy algorithm
     let deviceMap: number[][] = [];
-
     for (const device of deviceList) {
-        // LIST = SORTED LIST
-        // MAP = LAYOUT
         let bestRowIndex = -1;
         let maxRemainingWidth = -1;
 
+        // Find best existing row to fit device
         for (let i = 0; i < deviceMap.length; i++) {
             const currentRow = deviceMap[i];
             const currentWidth = rowWidth(currentRow);
@@ -67,6 +60,7 @@ export const createSiteLayout = (deviceIndex: IdToCount): SiteLayout => {
             }
         }
 
+        // No rows OR device does not fit
         if (bestRowIndex !== -1) {
             deviceMap[bestRowIndex].push(device.id);
         } else {
@@ -74,17 +68,12 @@ export const createSiteLayout = (deviceIndex: IdToCount): SiteLayout => {
         }
     }
 
-
+    // Calculate site width and row count
+    const rowCount = deviceMap.length
     const siteWidth = deviceMap.reduce((maxWidth, row) => {
         const rowWidth = row.reduce((width, id) => width + (DeviceGuide.get(id)?.width || 0), 0);
         return Math.max(maxWidth, rowWidth);
     }, 0);
-
-    const rowCount = deviceMap.length
-
-    console.log(deviceMap)
-    console.log(siteWidth)
-    console.log(rowCount)
 
     return {
         deviceMap,
