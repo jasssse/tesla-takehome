@@ -1,4 +1,4 @@
-import { Device, DeviceGuide } from "../models/device";
+import { DeviceGuide } from "./deviceGuide";
 
 export interface IdToCount {
     [id: number]: number;
@@ -24,7 +24,7 @@ export const createSiteLayout = (deviceIndex: IdToCount): SiteLayout => {
             }
         }
     }
-    
+
     deviceList.sort(
         (a, b) => {
             if (b.width == a.width) {
