@@ -1,5 +1,3 @@
-import Card from '@mui/material/Card';
-
 interface MetricsAreaProps {
     energy: number,
     cost: number,
@@ -11,7 +9,7 @@ export const MetricsArea = ({energy, cost, rowCount, width} : MetricsAreaProps) 
     const formattedCost = cost.toLocaleString("en-US", {style:"currency", currency:"USD"});
 
     return(
-        <div className={`p-0.5 w-[90%] ${ rowCount > 0 ? 'bg-gradient-to-r' : 'bg-white'} from-white via-emerald-400 to-sky-500 rounded-lg drop-shadow-md`}>
+        <div className={`p-0.5 w-[90%] ${ rowCount > 0 ? 'bg-gradient-to-r' : 'bg-white dark:bg-dark_accent'} from-white via-emerald-400 to-sky-500 rounded-lg drop-shadow-md`}>
             <div className="w-full h-full rounded-lg bg-white dark:bg-dark_accent flex flex-col items-start p-4">
                 <h1 className="text-xl font-semibold mb-2 dark:text-dark_header_text">
                     Site Metrics
