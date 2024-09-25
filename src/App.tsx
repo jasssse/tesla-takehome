@@ -8,6 +8,8 @@ import { MainArea } from './components/mainArea';
 import { DeviceIndex, initialDeviceIndex } from './models/device';
 import { calculateRequiredTransformers } from './util/calculations';
 import { DeviceList } from './components/deviceList';
+import Button from '@mui/material/Button';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 function App() {
   const [deviceIndex, setDeviceIndex] = useState<DeviceIndex>(initialDeviceIndex)
@@ -30,16 +32,22 @@ function App() {
 
   return (
     <div className="App">
-      <header className="mx-auto flex text-xl font-semibold leading-6 p-6">
-        <a className="text-red-500 font-bol">
-          Tesla Energy
-        </a>
-        <a className='px-2'>
-          //
-        </a>
-        <a className="text-gray-900">
-          Site Layout Tool
-        </a>
+      <header className="mx-auto flex text-xl font-semibold justify-between leading-6 p-6">
+        <div>
+          <a className="text-red-500 font-bol">
+            Tesla Energy
+          </a>
+          <a className='px-2'>
+            //
+          </a>
+          <a className="text-gray-900">
+            Site Layout Tool
+          </a>
+        </div>
+        <Button variant="contained" endIcon={<LaunchIcon />} href="https://www.tesla.com/en_ca/megapack" rel="noreferrer" color="error">
+          Learn More
+        </Button>
+        
       </header>
 
       <div className="flex flex-row overflow-auto border-blue-300 w-full">

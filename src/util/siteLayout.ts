@@ -68,6 +68,7 @@ export const createSiteLayout = (deviceIndex: DeviceIndex): SiteLayoutProperties
             deviceMap.push([device.id])
         }
 
+        // Sum cost and energy as we go
         totalCost += DeviceGuide.get(device.id)!.cost
         totalEnergy += DeviceGuide.get(device.id)!.energy
     }
