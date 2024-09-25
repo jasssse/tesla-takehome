@@ -14,7 +14,7 @@ The app displays a sample layout of batteries, as well as space, energy and cost
 ### Running the app
 ```
 npm install
-npm runstart
+npm run start
 ```
 
 ### Design Decisions
@@ -24,3 +24,10 @@ npm runstart
   - This algorithm is not fully greedy – despite inserting batteries from largest to smallest, it attempts to find spaces for smaller batteries in existing rows to minimize overall width when possible. It does this rather than always taking the first available space in the 2D array representation.
   - This algorithm is not fully optimal (for example, it doesn't arrange batteries vertically), but provides a decent improvement over a completely greedy algorithm.
 - Typescript was used for static typing and improved readability
+- I couldn't find definitive images for each device, thus some may be different shots of the same product. Apologies!
+
+### Small additions
+- Dark mode toggle!
+- Device name displayed when hovering over tiles
+- Accordion-style device selector
+- Learn more link to Tesla Megapack page
