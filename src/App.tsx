@@ -29,35 +29,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="bg-slate-400">
-        <h1>Site Layout Tool</h1>
+      <header className="mx-auto flex justify-between p-6">
+        <a className="text-lg font-semibold leading-6 text-gray-900">
+          Site Layout Tool
+        </a>
       </header>
-      <div className="flex overflow-auto border-blue-300 border-4">
-        <div className='border-red-500 border'>
-          <h1>Device Index</h1>
-          <ul>
-            {Object.entries(deviceIndex).map(([id, count]) => (
-              <li key={id}>
-                Device {id}: {count}
-              </li>
-            ))}
-          </ul>
-          <DeviceList deviceIndex={deviceIndex} updateDeviceCount={updateDeviceIndex}/>
 
-          {/* <div className='flex flex-col'>
-            <button onClick={() => updateDeviceIndex(1, deviceIndex[1] + 1)}>Increase device 1</button>
-            <button onClick={() => updateDeviceIndex(1, deviceIndex[1] - 1)}>Decrease device 1</button>
-
-            <button onClick={() => updateDeviceIndex(2, deviceIndex[2] + 1)}>Increase device 2</button>
-            <button onClick={() => updateDeviceIndex(2, deviceIndex[2] - 1)}>Decrease device 2</button>
-
-            <button onClick={() => updateDeviceIndex(3, deviceIndex[3] + 1)}>Increase device 3</button>
-            <button onClick={() => updateDeviceIndex(3, deviceIndex[3] - 1)}>Decrease device 3</button>
-
-            <button onClick={() => updateDeviceIndex(4, deviceIndex[4] + 1)}>Increase device 4</button>
-            <button onClick={() => updateDeviceIndex(4, deviceIndex[4] - 1)}>Decrease device 4</button>
-          </div> */}
-        </div>
+      <div className="flex flex-row overflow-auto border-blue-300 w-full">
+        <DeviceList deviceIndex={deviceIndex} updateDeviceCount={updateDeviceIndex}/>
         <MainArea deviceIndex={deviceIndex} />
       </div>
     </div>

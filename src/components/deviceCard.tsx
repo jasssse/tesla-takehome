@@ -1,3 +1,4 @@
+import TextField from '@mui/material/TextField';
 import { DeviceGuide } from "../util/deviceGuide";
 
 
@@ -9,6 +10,7 @@ interface DeviceSelectorProps {
 
 export const DeviceCard = ({ deviceId, count, onCountChange }:DeviceSelectorProps) => {
     const device = DeviceGuide.get(deviceId)!
+    const formattedCost = device.cost.toLocaleString("en-US", {style:"currency", currency:"USD"});
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = parseInt(e.target.value);
@@ -16,23 +18,57 @@ export const DeviceCard = ({ deviceId, count, onCountChange }:DeviceSelectorProp
         onCountChange(newValue);
     };
 
+
     // const incrementCount = () => onCountChange(count + 1);
     // TODO: REMOVE THE 0 CHECK
     // const decrementCount = () => onCountChange(count > 0 ? count - 1: 0);
 
 
     return (
-        <div className="flex flex-col bg-slate-500">
-            <h3>{device.name}</h3>
-            <p>Count: {count}</p>
-            <div>
-                <input 
-                    disabled = {deviceId == 0}
-                    type="number"
-                    value={count}
-                    onChange={handleInputChange}
-                />
+        <div className="flex flex-col items-start space-y-4">
+            <div className="w-full h-40 overflow-hidden flex items-center justify-center rounded-md">
+                <img src={device.imagePath} alt={'image'} className="object-cover rounded-md" />
             </div>
+            
+            
+            
+            <div className="flex flex-col items-start text-sm">
+                <p>
+                    <b>Cost:</b> {formattedCost}
+                </p>
+                <p>
+                    <b>Energy:</b> {device.energy}
+                </p>
+                <p>
+                    <b>Dimensions:</b> {device.width} ft x {device.height * 10} ft
+                </p>
+                {
+                    device.releaseYear && 
+                    <p>
+                        <b>Release Year:</b> {device.releaseYear}
+                    </p>
+                }
+                
+                
+            </div>
+
+            <TextField
+                fullWidth
+                disabled = {deviceId == 0}
+                id="outlined-number"
+                label="Number"
+                type="number"
+                slotProps={{
+                    inputLabel: {
+                        shrink: true,
+                    },
+                }}
+                value={count}
+                onChange={handleInputChange}
+            />
+
+
         </div>
+    
     )
 }

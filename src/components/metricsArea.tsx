@@ -1,4 +1,4 @@
-
+import Card from '@mui/material/Card';
 
 interface MetricsAreaProps {
     energy: number,
@@ -9,24 +9,26 @@ interface MetricsAreaProps {
 
 export const MetricsArea = ({energy, cost, rowCount, width} : MetricsAreaProps) => {
     const formattedCost = cost.toLocaleString("en-US", {style:"currency", currency:"USD"});
-    
+
     return(
-        <div className="flex flex-col items-start">
-            <h1>
-                Metrics
-            </h1>
+        <Card className='p-4 w-10/12'>
+            
             <div className="flex flex-col items-start">
+                <h1 className="text-xl font-semibold mb-2">
+                    Site Metrics
+                </h1>
+
                 {[
                     {
-                        title: "Cost",
+                        title: "Estimated Total Cost",
                         value: `${formattedCost}`
                     },
                     {
-                        title: "Energy Capacity",
+                        title: "Total Energy Capacity",
                         value: `${energy} MWh`
                     },
                     {
-                        title: "Dimensions",
+                        title: "Site Dimensions",
                         value: `${rowCount * 10} ft x ${width} ft`
                     }
 
@@ -38,6 +40,7 @@ export const MetricsArea = ({energy, cost, rowCount, width} : MetricsAreaProps) 
 
             </div>
 
-        </div>
+        </Card>
+        
     )
 }

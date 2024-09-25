@@ -5,6 +5,7 @@ export interface Device {
     height: number;
     energy: number;
     cost: number;
+    imagePath: string;
     releaseYear?: number
 }
 

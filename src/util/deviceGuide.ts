@@ -8,7 +8,8 @@ export const DeviceGuide = new Map<number, Device>([
             width: 10,
             height: 10,
             energy: -0.25,
-            cost: 10000
+            imagePath: '/images/transformer.png',
+            cost: 10000,
         }
     ],
     [
@@ -19,6 +20,7 @@ export const DeviceGuide = new Map<number, Device>([
             height: 10,
             energy: 1,
             cost: 20000,
+            imagePath: '/images/powerpack.jpg',
             releaseYear: 2000
         }
     ],
@@ -30,6 +32,7 @@ export const DeviceGuide = new Map<number, Device>([
             height: 10,
             energy: 2,
             cost: 50000,
+            imagePath: '/images/megapack.jpg',
             releaseYear: 2005
         }
     ],
@@ -41,6 +44,7 @@ export const DeviceGuide = new Map<number, Device>([
             height: 10,
             energy: 3,
             cost: 80000,
+            imagePath: '/images/megapack-2.jpg',
             releaseYear: 2021
         }
     ],
@@ -52,6 +56,7 @@ export const DeviceGuide = new Map<number, Device>([
             height: 10,
             energy: 4,
             cost: 120000,
+            imagePath: '/images/megapack-2xl.jpg',
             releaseYear: 2022
         }
 

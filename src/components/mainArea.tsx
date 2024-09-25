@@ -28,11 +28,8 @@ export const MainArea = ({ deviceIndex }: MainAreaProps) => {
     }, [deviceIndex])
 
     return (
-        <div className="flex flex-col">
-            {/* Metrics area */}
+        <div className="flex flex-col p-2 w-11/12 space-y-4">
             <MetricsArea energy={energy} cost={cost} rowCount={rowCount} width={layoutWidth}/>
-
-            {/* Site Layout */}
             <SiteLayout layout={layout}/>
         </div>
     )

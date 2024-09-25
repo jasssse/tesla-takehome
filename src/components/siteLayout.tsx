@@ -10,12 +10,12 @@ interface SiteLayoutProps {
 
 export const SiteLayout = ({layout}: SiteLayoutProps) => {
     return (
-        <div className="flex flex-col items-start">
-            <h1>
+        <div className="flex flex-col items-start p-2">
+            <h1 className="text-xl font-semibold">
                 Site Layout Preview
             </h1>
 
-            <div>
+            <div className="py-2 w-full">
                 {layout.length < 1 && <></>}
                 {layout.map((row, i) => {
                     return(
@@ -45,7 +45,7 @@ const Tile = ({id} : TileProps) => {
 
     return (
         <div
-            className={`border-2 border-white rounded-xl p-3 ${deviceColours.get(id)}`}
+            className={`border-8 border-white rounded-2xl p-4 ${deviceColours.get(id)}`}
             style={{
                 width: device.width * 10,
                 height: device.height * 10
