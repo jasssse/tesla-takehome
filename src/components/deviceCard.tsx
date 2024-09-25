@@ -20,7 +20,7 @@ export const DeviceCard = ({ deviceId, count, onCountChange }:DeviceSelectorProp
     return (
         <div className="flex flex-col items-start space-y-4">
             <div className="w-full h-40 overflow-hidden flex items-center justify-center rounded-md">
-                <img src={device.imagePath} alt={'image'} className="object-cover rounded-md" />
+                <img src={device.imagePath} alt={''} className="object-cover rounded-md" />
             </div>
 
             <div className="flex flex-col items-start text-sm">
@@ -43,9 +43,9 @@ export const DeviceCard = ({ deviceId, count, onCountChange }:DeviceSelectorProp
 
             <TextField
                 fullWidth
-                disabled = {deviceId == 0}
+                disabled = {deviceId === 0}
                 id="outlined-number"
-                label={`Number ${deviceId == 0 ? '(Fixed)' : ''}`}
+                label={`Number ${deviceId === 0 ? '(Fixed)' : ''}`}
                 type="number"
                 slotProps={{
                     inputLabel: {

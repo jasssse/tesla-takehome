@@ -24,11 +24,8 @@ export const DeviceList = ({deviceIndex, updateDeviceCount}: DeviceListProps) =>
                     const device = DeviceGuide.get(id)!
 
                     return (
-                        <Accordion
-                        >
-                            <AccordionSummary
-                                expandIcon={<ArrowDropDownIcon />}
-                            >
+                        <Accordion>
+                            <AccordionSummary expandIcon={<ArrowDropDownIcon />} >
                                 <div className='flex flex-row w-full space-x-2 justify-between pr-4'>
                                     <Typography>{device.name}</Typography>
                                     <div
@@ -40,8 +37,8 @@ export const DeviceList = ({deviceIndex, updateDeviceCount}: DeviceListProps) =>
                                     >
                                     </div>
                                 </div>
-                                
                             </AccordionSummary>
+                            
                             <AccordionDetails>
                                 <DeviceCard 
                                     deviceId={id} 
