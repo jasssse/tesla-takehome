@@ -1,5 +1,6 @@
 import { Device } from "../models/device"
 
+// Sample device data -> this would be lifted into an API if a backend was added
 export const DeviceGuide = new Map<number, Device>([
     [
         0, 

@@ -41,10 +41,11 @@ export const createSiteLayout = (deviceIndex: DeviceIndex): SiteLayoutProperties
         }, 0);
     }
     
-    // Greedy algorithm
+    // Greedy-esque algorithm
     let deviceMap: number[][] = [];
     let totalCost = 0
     let totalEnergy = 0
+
     for (const device of deviceList) {
         let bestRowIndex = -1;
         let maxRemainingWidth = -1;
@@ -61,7 +62,7 @@ export const createSiteLayout = (deviceIndex: DeviceIndex): SiteLayoutProperties
             }
         }
 
-        // No rows OR device does not fit
+        // No rows OR device does not fit, add a new row
         if (bestRowIndex !== -1) {
             deviceMap[bestRowIndex].push(device.id);
         } else {

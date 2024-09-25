@@ -11,7 +11,7 @@ export const MetricsArea = ({energy, cost, rowCount, width} : MetricsAreaProps) 
     const formattedCost = cost.toLocaleString("en-US", {style:"currency", currency:"USD"});
 
     return(
-        <Card className='p-4 w-11/12'>
+        <Card className='p-4 w-[90%]'>
             <div className="flex flex-col items-start">
                 <h1 className="text-xl font-semibold mb-2">
                     Site Metrics

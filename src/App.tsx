@@ -50,7 +50,7 @@ function App() {
         
       </header>
 
-      <div className="flex flex-row overflow-auto border-blue-300 w-full">
+      <div className="flex flex-row overflow-auto w-full px-2">
         <DeviceList deviceIndex={deviceIndex} updateDeviceCount={updateDeviceIndex}/>
         <MainArea deviceIndex={deviceIndex} />
       </div>

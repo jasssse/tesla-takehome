@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { DeviceIndex } from "../models/device";
 import { MetricsArea } from "./metricsArea";
 import { SiteLayoutPreview } from "./siteLayoutPreview";
-import { createSiteLayout } from "../util/siteLayout";
+import { createSiteLayout } from "../util/createSiteLayout";
 
 interface MainAreaProps {
     deviceIndex: DeviceIndex;
@@ -17,7 +17,7 @@ export const MainArea = ({ deviceIndex }: MainAreaProps) => {
 
     useEffect(() => {
         const { deviceMap, siteWidth, rowCount, cost, energy} = createSiteLayout(deviceIndex)
-        
+
         setLayout(deviceMap)
         setLayoutWidth(siteWidth)
         setRowCount(rowCount)

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { createSiteLayout } from './util/siteLayout';
+import { createSiteLayout } from './util/createSiteLayout';
 
 (window as any).createSiteLayout = createSiteLayout
 
