@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+# Tesla Energy Sales Engineering Take-Home
+This is my submission for a take-home project for a Full-Stack position with Tesla Energy Sales Engineering.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project Intro
+This is a web application that allows users to preview an industrial energy battery site. Users can add or remove any quantity of 4 following batteries:
+- Megapack 2XL
+- Megapack 2
+- Megapack
+- Powerpack
+- Transformer (these are a fixed quantity; 1 for every 4 devices)
 
-## Available Scripts
+The app displays a sample layout of batteries, as well as space, energy and cost estimates.
 
-In the project directory, you can run:
+### Running the app
+```
+npm install
+npm runstart
+```
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Design Decisions
+- With the data set being small and straightforward, I opted against a Python or Node-based backend
+- Semi-optimal grid algorithm
+  - JS/TS logic was used to construct an algorithm for an adequately-optimal battery layout, as opposed to something like a CSS grid
+  - This algorithm is not fully greedy – despite inserting batteries from largest to smallest, it attempts to find spaces for smaller batteries in existing rows to minimize overall width when possible. It does this rather than always taking the first available space in the 2D array representation.
+  - This algorithm is not fully optimal (for example, it doesn't arrange batteries vertically), but provides a decent improvement over a completely greedy algorithm.
+- Typescript was used for static typing and improved readability
