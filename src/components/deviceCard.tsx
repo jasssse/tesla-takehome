@@ -18,26 +18,18 @@ export const DeviceCard = ({ deviceId, count, onCountChange }:DeviceSelectorProp
         onCountChange(newValue);
     };
 
-
-    // const incrementCount = () => onCountChange(count + 1);
-    // TODO: REMOVE THE 0 CHECK
-    // const decrementCount = () => onCountChange(count > 0 ? count - 1: 0);
-
-
     return (
         <div className="flex flex-col items-start space-y-4">
             <div className="w-full h-40 overflow-hidden flex items-center justify-center rounded-md">
                 <img src={device.imagePath} alt={'image'} className="object-cover rounded-md" />
             </div>
-            
-            
-            
+
             <div className="flex flex-col items-start text-sm">
                 <p>
                     <b>Cost:</b> {formattedCost}
                 </p>
                 <p>
-                    <b>Energy:</b> {device.energy}
+                    <b>Energy:</b> {device.energy} MWh
                 </p>
                 <p>
                     <b>Dimensions:</b> {device.width} ft x {device.height * 10} ft
@@ -48,15 +40,13 @@ export const DeviceCard = ({ deviceId, count, onCountChange }:DeviceSelectorProp
                         <b>Release Year:</b> {device.releaseYear}
                     </p>
                 }
-                
-                
             </div>
 
             <TextField
                 fullWidth
                 disabled = {deviceId == 0}
                 id="outlined-number"
-                label="Number"
+                label={`Number ${deviceId == 0 ? '(Fixed)' : ''}`}
                 type="number"
                 slotProps={{
                     inputLabel: {
@@ -66,9 +56,6 @@ export const DeviceCard = ({ deviceId, count, onCountChange }:DeviceSelectorProp
                 value={count}
                 onChange={handleInputChange}
             />
-
-
         </div>
-    
     )
 }

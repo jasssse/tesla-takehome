@@ -20,14 +20,12 @@ export const SiteLayout = ({layout}: SiteLayoutProps) => {
                 {layout.map((row, i) => {
                     return(
                         <div key={i} className="flex flex-row">
-                            {row.map((deviceId, j) => {
+                            {row.map((deviceId) => {
                                 return (
                                     <Tile id={deviceId} />
                                 )
                             })}
-
                         </div>
-
                     )
                 })}
             </div>
@@ -42,15 +40,33 @@ interface TileProps {
 
 const Tile = ({id} : TileProps) => {
     const device = DeviceGuide.get(id)!
+    const [isHovered, setIsHovered] = useState(false);
+
+  // Function to handle mouse enter
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    // Function to handle mouse leave
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
 
     return (
         <div
-            className={`border-8 border-white rounded-2xl p-4 ${deviceColours.get(id)}`}
+            className={`relative flex items-center justify-center border-8 border-[#fafafa] rounded-2xl p-4 ${deviceColours.get(id)}`}
             style={{
                 width: device.width * 10,
                 height: device.height * 10
             }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
+            {isHovered && (
+                <span className="absolute text-white text-center px-2 py-1 bg-black bg-opacity-50 rounded">
+                    {device.name}
+                </span>
+            )}
         </div>
     )
 

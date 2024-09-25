@@ -29,8 +29,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="mx-auto flex justify-between p-6">
-        <a className="text-lg font-semibold leading-6 text-gray-900">
+      <header className="mx-auto flex text-xl font-semibold leading-6 p-6">
+        <a className="text-red-500 font-bol">
+          Tesla Energy
+        </a>
+        <a className='px-2'>
+          //
+        </a>
+        <a className="text-gray-900">
           Site Layout Tool
         </a>
       </header>
