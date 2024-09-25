@@ -5,7 +5,8 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './App.css';
 import { MainArea } from './components/mainArea';
-import { DeviceIndex, calculateRequiredTransformers, initialDeviceIndex } from './models/device';
+import { DeviceIndex, initialDeviceIndex } from './models/device';
+import { calculateRequiredTransformers } from './util/calculations';
 import { DeviceList } from './components/deviceList';
 
 function App() {

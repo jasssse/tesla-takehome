@@ -1,7 +1,6 @@
 import { DeviceGuide } from "./deviceGuide";
 import { DeviceIndex} from "../models/device";
 
-
 const MAX_WIDTH = 100
 
 export interface SiteLayoutProperties {

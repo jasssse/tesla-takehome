@@ -1,7 +1,5 @@
-import { deviceColours, DeviceIndex } from "../models/device"
-import { useEffect, useState } from "react"
-import { SiteLayoutProperties } from "../util/siteLayout"
-import { createSiteLayout } from "../util/siteLayout"
+import { deviceColours } from "../models/device"
+import { useState } from "react"
 import { DeviceGuide } from "../util/deviceGuide"
 
 interface SiteLayoutPreviewProps {
@@ -42,12 +40,10 @@ const Tile = ({id} : TileProps) => {
     const device = DeviceGuide.get(id)!
     const [isHovered, setIsHovered] = useState(false);
 
-  // Function to handle mouse enter
     const handleMouseEnter = () => {
         setIsHovered(true);
     };
 
-    // Function to handle mouse leave
     const handleMouseLeave = () => {
         setIsHovered(false);
     };

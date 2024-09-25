@@ -15,10 +15,9 @@ export const MainArea = ({ deviceIndex }: MainAreaProps) => {
     const [energy, setEnergy] = useState(0)
     const [cost, setCost] = useState(0)
 
-    // Calculate cost and energy
-
     useEffect(() => {
         const { deviceMap, siteWidth, rowCount, cost, energy} = createSiteLayout(deviceIndex)
+        
         setLayout(deviceMap)
         setLayoutWidth(siteWidth)
         setRowCount(rowCount)
