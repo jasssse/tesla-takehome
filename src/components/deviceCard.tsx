@@ -1,7 +1,6 @@
 import TextField from '@mui/material/TextField';
 import { DeviceGuide } from "../util/deviceGuide";
 
-
 interface DeviceSelectorProps {
     deviceId: number;
     count: number;

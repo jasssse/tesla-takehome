@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { DeviceIndex } from "../models/device";
 import { MetricsArea } from "./metricsArea";
-import { SiteLayout } from "./siteLayout";
+import { SiteLayoutPreview } from "./siteLayoutPreview";
 import { createSiteLayout } from "../util/siteLayout";
 
 interface MainAreaProps {
@@ -30,7 +30,7 @@ export const MainArea = ({ deviceIndex }: MainAreaProps) => {
     return (
         <div className="flex flex-col p-2 w-11/12 space-y-4">
             <MetricsArea energy={energy} cost={cost} rowCount={rowCount} width={layoutWidth}/>
-            <SiteLayout layout={layout}/>
+            <SiteLayoutPreview layout={layout}/>
         </div>
     )
 }

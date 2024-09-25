@@ -4,11 +4,11 @@ import { SiteLayoutProperties } from "../util/siteLayout"
 import { createSiteLayout } from "../util/siteLayout"
 import { DeviceGuide } from "../util/deviceGuide"
 
-interface SiteLayoutProps {
+interface SiteLayoutPreviewProps {
     layout: number[][]
 }
 
-export const SiteLayout = ({layout}: SiteLayoutProps) => {
+export const SiteLayoutPreview = ({layout}: SiteLayoutPreviewProps) => {
     return (
         <div className="flex flex-col items-start p-2">
             <h1 className="text-xl font-semibold">
