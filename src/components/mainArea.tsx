@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { DeviceIndex } from "../models/device";
 import { MetricsArea } from "./metricsArea";
 import { SiteLayoutPreview } from "./siteLayoutPreview";
@@ -15,8 +15,12 @@ export const MainArea = ({ deviceIndex }: MainAreaProps) => {
     const [energy, setEnergy] = useState(0)
     const [cost, setCost] = useState(0)
 
+    const siteLayout = useMemo(() => {
+        return createSiteLayout(deviceIndex);
+    }, [deviceIndex])
+
     useEffect(() => {
-        const { deviceMap, siteWidth, rowCount, cost, energy} = createSiteLayout(deviceIndex)
+        const { deviceMap, siteWidth, rowCount, cost, energy} = siteLayout
 
         setLayout(deviceMap)
         setLayoutWidth(siteWidth)
@@ -24,7 +28,7 @@ export const MainArea = ({ deviceIndex }: MainAreaProps) => {
         setCost(cost)
         setEnergy(energy)
 
-    }, [deviceIndex])
+    }, [siteLayout])
 
     return (
         <div className="flex flex-col p-2 w-11/12 space-y-4">

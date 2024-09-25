@@ -21,7 +21,7 @@ export const Tile = ({id, tileHeight, tileWidth, label} : TileProps) => {
 
     return (
         <div
-            className={`relative flex items-center justify-center border-8 border-[#fafafa] rounded-2xl p-4 ${deviceColours.get(id)}`}
+            className={`relative flex items-center justify-center border-8 border-[#fafafa] dark:border-dark_bg rounded-2xl p-4 ${deviceColours.get(id)}`}
             style={{
                 height: tileHeight,
                 width: tileWidth

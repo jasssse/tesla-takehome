@@ -15,9 +15,9 @@ interface DeviceListProps {
 
 export const DeviceList = ({deviceIndex, updateDeviceCount}: DeviceListProps) => {
     return(
-        <Card className='m-2 p-4 w-4/12'>
-            <div className='flex flex-col items-start'>
-                <h1 className="text-xl font-semibold mb-4">
+        <div className='m-2 ml-4 p-4 w-4/12 bg-white dark:bg-dark_accent rounded-lg drop-shadow-md'>
+            <div className='flex flex-col items-start '>
+                <h1 className="text-xl font-semibold mb-4 dark:text-dark_header_text">
                     Device Configuration
                 </h1>
                 {Object.entries(deviceIndex).reverse().map(([idString, count]) => {
@@ -25,7 +25,8 @@ export const DeviceList = ({deviceIndex, updateDeviceCount}: DeviceListProps) =>
                     const device = DeviceGuide.get(id)!
 
                     return (
-                        <Accordion>
+                        <Accordion
+                        >
                             <AccordionSummary
                                 expandIcon={<ArrowDropDownIcon />}
                             >
@@ -55,7 +56,7 @@ export const DeviceList = ({deviceIndex, updateDeviceCount}: DeviceListProps) =>
                     )
                 })}
             </div>
-        </Card>
+        </div>
         
     )
 }
