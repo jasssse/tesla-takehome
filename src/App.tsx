@@ -6,6 +6,7 @@ import '@fontsource/roboto/700.css';
 import './App.css';
 import { MainArea } from './components/mainArea';
 import { DeviceIndex, calculateRequiredTransformers, initialDeviceIndex } from './models/device';
+import { DeviceList } from './components/deviceList';
 
 function App() {
   const [deviceIndex, setDeviceIndex] = useState<DeviceIndex>(initialDeviceIndex)
@@ -31,8 +32,8 @@ function App() {
       <header className="bg-slate-400">
         <h1>Site Layout Tool</h1>
       </header>
-      <div className="flex overflow-auto">
-        <div>
+      <div className="flex overflow-auto border-blue-300 border-4">
+        <div className='border-red-500 border'>
           <h1>Device Index</h1>
           <ul>
             {Object.entries(deviceIndex).map(([id, count]) => (
@@ -41,7 +42,9 @@ function App() {
               </li>
             ))}
           </ul>
-          <div className='flex flex-col'>
+          <DeviceList deviceIndex={deviceIndex} updateDeviceCount={updateDeviceIndex}/>
+
+          {/* <div className='flex flex-col'>
             <button onClick={() => updateDeviceIndex(1, deviceIndex[1] + 1)}>Increase device 1</button>
             <button onClick={() => updateDeviceIndex(1, deviceIndex[1] - 1)}>Decrease device 1</button>
 
@@ -53,8 +56,9 @@ function App() {
 
             <button onClick={() => updateDeviceIndex(4, deviceIndex[4] + 1)}>Increase device 4</button>
             <button onClick={() => updateDeviceIndex(4, deviceIndex[4] - 1)}>Decrease device 4</button>
-          </div>
+          </div> */}
         </div>
+        <MainArea deviceIndex={deviceIndex} />
       </div>
     </div>
   );

@@ -20,11 +20,6 @@ export const initialDeviceIndex: DeviceIndex = {
     4: 0
   };
 
-export interface SiteLayout {
-    deviceMap: number[][];
-    siteWidth: number;
-    rowCount: number;
-}
 
 export const calculateRequiredTransformers = (deviceIndex: DeviceIndex): number => {
     const nonTransformerCount = Object.entries(deviceIndex)
@@ -33,3 +28,11 @@ export const calculateRequiredTransformers = (deviceIndex: DeviceIndex): number 
 
     return Math.ceil(nonTransformerCount / 4); // 1 transformer per 4 non-transformer devices
 };
+
+export const deviceColours = new Map<number, string>([
+    [0, "bg-[#1e293b]"],
+    [1, "bg-[#8b5cf6]"],
+    [2, "bg-[#22d3ee]"],
+    [3, "bg-[#fb923c]"],
+    [4, "bg-[#ef4444]"]
+])

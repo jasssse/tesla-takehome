@@ -1,10 +1,18 @@
 import { DeviceGuide } from "./deviceGuide";
-import { DeviceIndex, SiteLayout } from "../models/device";
+import { DeviceIndex} from "../models/device";
 
 
 const MAX_WIDTH = 100
 
-export const createSiteLayout = (deviceIndex: DeviceIndex): SiteLayout => {
+export interface SiteLayoutProperties {
+    deviceMap: number[][];
+    siteWidth: number;
+    rowCount: number;
+    cost: number;
+    energy: number;
+}
+
+export const createSiteLayout = (deviceIndex: DeviceIndex): SiteLayoutProperties => {
     // Create a sorted device list from the Device Index
     let deviceList: { id: number; width: number }[] = [];
     for (const [idStr, quantity] of Object.entries(deviceIndex)) {
@@ -36,6 +44,8 @@ export const createSiteLayout = (deviceIndex: DeviceIndex): SiteLayout => {
     
     // Greedy algorithm
     let deviceMap: number[][] = [];
+    let totalCost = 0
+    let totalEnergy = 0
     for (const device of deviceList) {
         let bestRowIndex = -1;
         let maxRemainingWidth = -1;
@@ -58,6 +68,9 @@ export const createSiteLayout = (deviceIndex: DeviceIndex): SiteLayout => {
         } else {
             deviceMap.push([device.id])
         }
+
+        totalCost += DeviceGuide.get(device.id)!.cost
+        totalEnergy += DeviceGuide.get(device.id)!.energy
     }
 
     // Calculate site width and row count
@@ -70,6 +83,8 @@ export const createSiteLayout = (deviceIndex: DeviceIndex): SiteLayout => {
     return {
         deviceMap,
         siteWidth,
-        rowCount
+        rowCount,
+        cost: totalCost,
+        energy: totalEnergy
     }
 }
